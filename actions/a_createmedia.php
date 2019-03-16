@@ -38,7 +38,7 @@
 					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="2" rowspan="" headers=""><a href="logout.php"><button>Logout</button></td>
+					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
 				</tr>
 					<tr>
 					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>

@@ -36,7 +36,7 @@
 					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="2" rowspan="" headers=""><a href="logout.php"><button>Logout</button></td>
+					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
 				</tr>
 					<tr>
 					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
@@ -51,6 +51,60 @@
 		<br>
 		<br>
 		<!---CONTENT SECTION ENDS --->
+
+		<!---TABLE AND DATABASE DATA PULL BEGINS--->
+		<div class="manageTable">
+   			<table border="1" cellspacing="0" cellpadding="0">
+     			<thead>
+       				<tr>
+				       	<th>Employee Table ID</th>
+				        <th>Employee Code</th>
+				        <th>Name</th>
+				        <th>Surname</th>
+				        <th>Email</th>
+				        <th>Department</th>
+				        <th>Password</th>
+				        <th>Creation Date</th>
+				        <th>Last Updated</th>
+				        <th>Edit/Delete</th>
+       				</tr>
+     			</thead>
+      		<tbody>
+
+       <?php
+       require_once 'actions/db_connect.php';
+
+       $sql = "SELECT * FROM employee";
+       $result = $connect->query($sql);
+
+       if($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+           echo "<tr>
+           <td>".$row['Employee_ID']."</td> 
+           <td>".$row['Empl_Code']."</td>
+           <td>".$row['Name']."</td>
+           <td>".$row['Surname']."</td>
+           <td>".$row['Email']."</td>
+           <td>".$row['Department']."</td>
+           <td>".$row['Password']."</td>
+           <td>".$row['Created_at']."</td>
+           <td>".$row['Updated_at']."</td>
+           <td> 
+           <a href='update.php?id=".$row['Employee_ID']."'><button type='button'>Edit</button></a>
+           <a href='delete.php?id=".$row['Employee_ID']."'><button type='button'>Delete</button></a>
+           </td>
+           </tr>";
+         }
+       } else {
+         echo "<tr><td colspan='9'><center>No Data Avaliable</center></td></tr>";
+       }
+       ?>
+     		</tbody>
+   			</table>
+ 		</div>
+		<!---ENDS TABLE AND DATABASE DATA PULL--->
+
+		<!---FOOTER SECTION BEGINS --->
 		<footer id="footer">
 			<div>
 				<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">

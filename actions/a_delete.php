@@ -60,7 +60,7 @@ if($_POST) {
 	$sql = "DELETE FROM genres WHERE Genres_ID = {$genresid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewauthorsandgenres.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewgenres.php'><button type='button'>Back</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 	<meta name="description" content="CF Public Library">
 	<meta name="Jamie Slaats" content="CF Public Library">
 	<link rel="icon" href="../../favicon.ico">
-	<title>Homepage - CF Public Library</title>
+	<title>View Genres Data - CF Public Library</title>
 	<!-- Custom styles for this template -->
 	<link href="CSS/headertablefooter.css" rel="stylesheet">
 	<link href="CSS/signin.css" rel="stylesheet">
@@ -36,7 +38,7 @@
 					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="2" rowspan="" headers=""><a href="logout.php"><button>Logout</button></td>
+					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
 				</tr>
 					<tr>
 					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
@@ -53,43 +55,49 @@
 		<br>
 		<!---CONTENT SECTION ENDS --->
 
-		<div class="manageGenres">
-   <table border="1" cellspacing="0" cellpadding="0">
-     <thead>
-       <tr>
-         <th>Genre</th>
-       </tr>
-     </thead>
-     <tbody>
+		<!---TABLE AND DATABASE DATA PULL BEGINS--->
+		<div class="manageTable">
+   			<table border="1" cellspacing="0" cellpadding="0">
+     			<thead>
+       				<tr>
+				       	<th>Genre ID</th>
+				        <th>Genre</th>
+				        <th>Creation Date</th>
+				        <th>Last Updated</th>
+				        <th>Edit/Delete</th>
+       				</tr>
+     			</thead>
+      		<tbody>
 
        <?php
-       $sql = "SELECT * FROM genre WHERE active = 0";
+       require_once 'actions/db_connect.php';
+
+       $sql = "SELECT * FROM genres";
        $result = $connect->query($sql);
 
        if($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
            echo "<tr>
-           <td>".$row['first_name']." ".$row['last_name']."</td>
-           <td>".$row['date_of_birth']."</td>
+           <td>".$row['Genres_ID']."</td> 
+           <td>".$row['GenreName']."</td>
+           <td>".$row['Created_at']."</td>
+           <td>".$row['Updated_at']."</td>
            <td>
-           <a href='update.php?id=".$row['id']."'><button type='button'>Edit</button></a>
-           <a href='delete.php?id=".$row['id']."'><button type='button'>Delete</button></a>
+           <a href='update.php?id=".$row['Genres_ID']."'><button type='button'>Edit</button></a>
+           <a href='delete.php?id=".$row['Genres_ID']."'><button type='button'>Delete</button></a>
            </td>
            </tr>";
          }
        } else {
-         echo "<tr><td colspan='5'><center>No Data Avaliable</center></td></tr>";
+         echo "<tr><td colspan='4'><center>No Data Avaliable</center></td></tr>";
        }
        ?>
+     		</tbody>
+   			</table>
+ 		</div>
+		<!---ENDS TABLE AND DATABASE DATA PULL--->
 
-       
-     </tbody>
-   </table>
- </div>
-
-
-
-
+		<!---FOOTER SECTION BEGINS --->
 		<footer id="footer">
 			<div>
 				<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">

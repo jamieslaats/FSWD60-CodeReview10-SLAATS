@@ -36,7 +36,7 @@
 					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="2" rowspan="" headers=""><a href="logout.php"><button>Logout</button></td>
+					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
 				</tr>
 					<tr>
 					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
@@ -51,6 +51,76 @@
 		<br>
 		<br>
 		<!---CONTENT SECTION ENDS --->
+
+		<!---TABLE AND DATABASE DATA PULL BEGINS--->
+		<div class="manageTable">
+   			<table border="1" cellspacing="0" cellpadding="0">
+     			<thead>
+       				<tr>
+				       	<th>Media_ID</th>
+				        <th>ISBN#</th>
+				        <th>Media Code</th>
+				        <th>Title</th>
+				        <th>Image</th>
+				        <th>Description</th>
+				        <th>Media Type</th>
+				        <th>Publisher Date</th>
+				        <th>Total Units</th>
+				        <th>Available Units</th>
+				        <th>Unit Location</th>
+				        <th>Author</th>
+				        <th>Publisher</th>
+				        <th>Genre</th>
+				        <th>Admin Managing</th>
+				        <th>Creation Date</th>
+				        <th>Last Updated</th>
+				        <th>Edit/Delete</th>
+       				</tr>
+     			</thead>
+      		<tbody>
+
+       <?php
+       require_once 'actions/db_connect.php';
+
+       $sql = "SELECT * FROM media";
+       $result = $connect->query($sql);
+
+       if($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+           echo "<tr>
+           <td>".$row['Media_ID']."</td> 
+           <td>".$row['ISBN_No']."</td>
+           <td>".$row['MediaCode']."</td>
+           <td>".$row['Title']."</td>
+           <td>".$row['TitleImage']."</td>
+           <td>".$row['Description']."</td>
+           <td>".$row['MediaType']."</td>
+           <td>".$row['PublisherDate']."</td>
+           <td>".$row['Total_Count']."</td>
+           <td>".$row['Avail_Count']."</td>
+           <td>".$row['Location_ID']."</td>
+           <td>".$row['fk_Author_ID']."</td>
+           <td>".$row['fk_Publ_ID']."</td>
+           <td>".$row['fk_Genres_ID']."</td>
+           <td>".$row['fk_Admin_ID']."</td>
+           <td>".$row['Created_at']."</td>
+           <td>".$row['Updated_at']."</td>
+           <td> 
+           <a href='update.php?id=".$row['Media_ID']."'><button type='button'>Edit</button></a>
+           <a href='delete.php?id=".$row['Media_ID']."'><button type='button'>Delete</button></a>
+           </td>
+           </tr>";
+         }
+       } else {
+         echo "<tr><td colspan='18'><center>No Data Avaliable</center></td></tr>";
+       }
+       ?>
+     		</tbody>
+   			</table>
+ 		</div>
+		<!---ENDS TABLE AND DATABASE DATA PULL--->
+
+		<!---FOOTER SECTION BEGINS --->
 		<footer id="footer">
 			<div>
 				<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">

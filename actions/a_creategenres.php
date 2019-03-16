@@ -8,7 +8,7 @@
 	<meta name="description" content="CF Public Library">
 	<meta name="Jamie Slaats" content="CF Public Library">
 	<link rel="icon" href="../../favicon.ico">
-	<title>Add Media Data Page - CF Public Library</title>
+	<title>Add Genres Data Page - CF Public Library</title>
 	<!-- Custom styles for this template -->
 	<link href="../CSS/headertablefooter.css" rel="stylesheet">
 	<link href="../CSS/signin.css" rel="stylesheet">
@@ -38,7 +38,7 @@
 					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
 					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="2" rowspan="" headers=""><a href="logout.php"><button>Logout</button></td>
+					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
 				</tr>
 					<tr>
 					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
@@ -55,7 +55,7 @@
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
 		<fieldset>
 
-		<legend>ADD AUTHOR CONTENT</legend>
+		<legend>ADD GENRE CONTENT</legend>
 		<div class="contentconfirmed">
 
 
