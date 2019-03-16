@@ -61,7 +61,7 @@
 			<div >
 				<h3>CREATE PUBLISHER CONTENT</h3>
 			</div>	
-
+			<hr>
 
 			<form class="" id="mediainputform" action="actions/a_createpublisher.php" method="POST">
 				<div class="row">

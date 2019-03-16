@@ -61,7 +61,7 @@
 			<div >
 				<h3>CREATE MEDIA CONTENT</h3>
 			</div>	
-
+			<hr>
 
 			<form class="" id="mediainputform" action="actions/a_createmedia.php" method="POST">
 				<div class="row">

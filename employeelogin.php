@@ -53,7 +53,7 @@
                     <input type="checkbox" value="remember-me"> Remember Me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button id="loginbtn" class="btn btn-lg btn-block" type="submit" name="submit">Sign in</button>
         </form>
         <!---CONTENT SECTION ENDS --->
         <footer id="footer">

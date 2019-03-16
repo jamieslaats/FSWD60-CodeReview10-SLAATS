@@ -95,6 +95,10 @@
     	<!---FOOTER SECTION BEGINNING --->
         <footer id="footer">
             <div>
+               <a class="center-block" href="employeelogin.php"><button class="btn btn-default" type="submit">Employee Login</button></a>
+            </div>
+            <br>
+            <div>
                 <img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
             </div>
             <div class="copyright text-center">

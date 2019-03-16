@@ -42,7 +42,8 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
-.btn-primary {
-  background-color: #887A79 !important
+#loginbtn {
+  background-color: #887A79 !important;
+  border-color: #887A79 !important;
+  color: white;
 }

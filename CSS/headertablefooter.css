@@ -33,16 +33,20 @@ body {
   text-align:  center;
 }
 
+td {
+  text-align: center;
+}
 
-
-
-
-
-
+#mediainputform {
+  font-size: 1.2em;
+}
 
 
 #footer {
 	padding: 40px 0px 10px 0px;
 	background-color: black;
 	color: white;
+}
+#footer a {
+  text-align: center;
 }

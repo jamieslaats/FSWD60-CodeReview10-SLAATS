@@ -62,7 +62,7 @@
 			<div >
 				<h3>CREATE EMPLOYEE CONTENT</h3>
 			</div>	
-
+			<hr>
 			<form class="" id="mediainputform" action="actions/a_createemployee.php" method="POST">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

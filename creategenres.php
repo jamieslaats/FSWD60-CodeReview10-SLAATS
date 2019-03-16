@@ -63,7 +63,7 @@
 			<div >
 				<h3>CREATE GENRES CONTENT</h3>
 			</div>	
-
+			<hr>
 			<form id="mediainputform" action="actions/a_creategenres.php" method="POST">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

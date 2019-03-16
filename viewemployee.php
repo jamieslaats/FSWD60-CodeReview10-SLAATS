@@ -12,6 +12,7 @@
 	<!-- Custom styles for this template -->
 	<link href="CSS/headertablefooter.css" rel="stylesheet">
 	<link href="CSS/signin.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Bootstrap Javascript core -->
@@ -99,8 +100,8 @@
            <td>".$row['Created_at']."</td>
            <td>".$row['Updated_at']."</td>
            <td> 
-           <a href='update.php?id=".$row['Employee_ID']."'><button type='button'>Edit</button></a>
-           <a href='delete.php?id=".$row['Employee_ID']."'><button type='button'>Delete</button></a>
+           <a href='update.php?id=".$row['Employee_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+           <a href='delete.php?id=".$row['Employee_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
            </td>
            </tr>";
          }

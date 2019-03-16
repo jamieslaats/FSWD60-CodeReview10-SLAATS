@@ -60,7 +60,8 @@
 		<div class="dataentrysection">
 			<div >
 				<h3>CREATE AUTHOR CONTENT</h3>
-			</div>		
+			</div>
+			<hr>	
 
 			<form class="" id="mediainputform" action="actions/a_createauthor.php" method="POST">
 				<div class="row">
