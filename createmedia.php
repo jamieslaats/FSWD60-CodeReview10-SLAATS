@@ -138,10 +138,23 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label id="labellettering">Author ID</label>
+						<label for="fk_Author_ID" id="labellettering">Author ID</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="fk_Author_ID" placeholder="0000">
+						<select name="fk_Author_ID" id="dropdown" multiple >
+							<?php
+							require_once 'db_connect.php';
+							$sql = 'SELECT authors.Name, authors.Surname FROM media INNER JOIN authors ON media.fk_Author_ID = Author_ID';
+							if($result->num_rows > 0) {
+         						while($row = $result->fetch_assoc()) {
+							           echo "<option>".$row['Name']." ".$row['Surname']."</option>";
+							         }
+							     }
+
+							       ?>
+						</select>
+
+						<!-- <input type="text" name="fk_Author_ID" placeholder="0000"> -->
 					</div>
 				</div>
 				<div class="row">

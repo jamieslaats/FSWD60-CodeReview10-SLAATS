@@ -57,7 +57,19 @@
 		<br>
 		<br>
 		<!---CONTENT SECTION ENDS --->
+		<div class="jumbotron">
+			<h2>Welcome Employees to the CF Content Management System</h2>
+			<h2>Here is where we will manage all of our content in our library</h2>
+			<h2>Key Points To Remember at all times: </h2>
+			<ol>
+				<li>There is an order to which data can be entered.</li>
+				<li>Always start with any new Publishers or Authors or Genres.</li>
+				<li>Once a new author or publisher or genre is created then proceed to entering the new media.</li>
+				<li>This is to ensure that all data is properly filtered for when a new media entry is created.</li>
 
+			</ol>
+			
+		</div>
 
 
 
