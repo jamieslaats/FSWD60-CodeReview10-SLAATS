@@ -10,6 +10,9 @@ body {
 .container {
   background-color: lightgray;
 }
+.container-fluid {
+  background-color: lightgray;
+}
 .headerlogo img {
   width: 100%;
   padding-top: 25px;
@@ -17,12 +20,18 @@ body {
 }
 .welcommessage {
   align-content: center;
+  text-align:  center;
+}
+
+.welcommeemployee li {
+  font-size: 1.2em;
 }
 
 
-
-
-
+.contentconfirmed {
+  align-content: center;
+  text-align:  center;
+}
 
 
 

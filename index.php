@@ -15,6 +15,8 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Bootstrap Javascript core -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
@@ -30,7 +32,65 @@
         <!--- CONTENT SECTION BEGINS FOR EXTERNAL USERS --->
 
         <div class="welcommessage" id="welcomemessage">
-            <h2>Welcome to the CF Public Library!</h2>
+            <h1>Welcome to the CF Public Library!</h1>
+            <h3>Here you can find a list of all of our current titles and offerings available to you!</h3>
+        </div>
+        <hr>
+        <div class="manageTable">
+            <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>ISBN#</th>
+                        <th>Media Code</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Media Type</th>
+                        <th>Publisher Date</th>
+                        <th>Total Units</th>
+                        <th>Available Units</th>
+                        <th>Unit Location</th>
+                        <th>Author</th>
+                        <th>Publisher</th>
+                        <th>Genre</th>
+                    </tr>
+                </thead>
+            <tbody>
+
+       <?php
+       require_once 'actions/db_connect.php';
+
+       $sql = "SELECT * FROM media";
+       $result = $connect->query($sql);
+
+       if($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+           echo "<tr>
+           <td>".$row['ISBN_No']."</td>
+           <td>".$row['MediaCode']."</td>
+           <td>".$row['Title']."</td>
+           <td><img src='".$row['TitleImage']."' width=100px></td>
+           <td>".$row['Description']."</td>
+           <td>".$row['MediaType']."</td>
+           <td>".$row['PublisherDate']."</td>
+           <td>".$row['Total_Count']."</td>
+           <td>".$row['Avail_Count']."</td>
+           <td>".$row['Location_ID']."</td>
+           <td>".$row['fk_Author_ID']."</td>
+           <td>".$row['fk_Publ_ID']."</td>
+           <td>".$row['fk_Genres_ID']."</td>
+           </tr>";
+         }
+       } else {
+         echo "<tr><td colspan='13'><center>No Data Avaliable</center></td></tr>";
+       }
+       ?>
+            </tbody>
+            </table>
+        </div>
+
+
+
 
     	<!---FOOTER SECTION BEGINNING --->
         <footer id="footer">

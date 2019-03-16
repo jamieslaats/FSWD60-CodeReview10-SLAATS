@@ -30,7 +30,7 @@
             </div>
         </header><!-- /HEADER -->
         <!--- LOGIN CONTENT SECTION BEGINS FOR EMPLOYEES --->
-        <div class="welcommessage" id="welcomemessage">
+        <div class="welcommeemployee jumbotron" id="welcommeemployee">
             <h2>This is the login page for all employees to be able to enter into the content management system. Please login with your details in order to:</h2>
             <ol>
                 <li>View/Add/Update Media Data.</li>
@@ -41,7 +41,7 @@
             </ol>
         </div>
         <form class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signin-heading">Please Sign In</h2>
             <label for="inputEmpID" class="sr-only">Employee ID</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Employee ID" required autofocus>
             <label for="inputEmail" class="sr-only">Email address</label>

@@ -30,33 +30,37 @@
 			</div>
 		</header><!-- /HEADER -->
 		<!--- LINKS CONTENT SECTION BEGINS --->
-		<table>
-			<caption><h1>Content Management System</h1></caption>
-			<tbody>
+		<div class="headertitle" id="headertitle" >
+			<h1>Content Management System</h1>
+		</div>
+		<div class="">
+		<table class="table table-responsive">
 				<tr>
-					<td colspan="" rowspan="" headers=""><a href="viewmedia.php"><button>View Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewauthor.php"><button>View Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
+					<tr>
+					<td><a href="../viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
+					<td><a href="../viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
+					<td><a href="../viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
+					<td><a href="../viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
+					<td><a href="../viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
+					<td><a href="../indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
+					
 				</tr>
 					<tr>
-					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createauthor.php"><button>Create Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createpublisher.php"><button>Create  Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="creategenres.php"><button>Create  Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createemployee.php"><button>Create  Employee Data</button></td>
-
+					<td><a href="../createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
+					<td><a href="../createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
+					<td><a href="../createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
+					<td><a href="../creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
+					<td><a href="../createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
+					<td><a href="../logout.php"><button class="btn btn-default">Logout</button></a></td>
 				</tr>
-			</tbody>
 		</table>
+		</div>
 		<!--- LINKS CONTENT SECTION ENDS --->
 		<hr>
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
-		<fieldset>
-
-		<legend>ADD AUTHOR CONTENT</legend>
+			<div >
+				<h3>CREATED EMPLOYEE CONTENT</h3>
+			</div>
 		<div class="contentconfirmed">
 
 <?php 
@@ -74,8 +78,8 @@ if($_POST) {
  $sql = "INSERT INTO employee (Empl_Code, Name, Surname, Email, Department, Password) VALUES ('$emplcode', '$fname', '$lname','$emailaddress','$department','$password')";
  if($connect->query($sql) === TRUE) {
    echo "<p>New Record Successfully Created</p>";
-   echo "<a href='../createemployee.php'><button type='button'>Back</button></a>";
-   echo "<a href='../indexcfpublib.php'><button type='button'>CF Home</button></a>";
+   echo "<a href='../createemployee.php'><button class='btn btn-default' type='button'>Create Another Record</button></a>";
+   echo "<a href='../indexcfpublib.php'><button class='btn btn-default' type='button'>Homepage</button></a>";
  } else {
    echo "Error " . $sql . ' ' . $connect->connect_error;
  }

@@ -30,95 +30,98 @@
 			</div>
 		</header><!-- /HEADER -->
 		<!--- LINKS CONTENT SECTION BEGINS --->
-		<table>
-			<caption><h1>Content Management System</h1></caption>
-			<tbody>
+		<div class="headertitle" id="headertitle" >
+			<h1>Content Management System</h1>
+		</div>
+		<div class="">
+		<table class="table table-responsive">
 				<tr>
-					<td colspan="" rowspan="" headers=""><a href="viewmedia.php"><button>View Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewauthor.php"><button>View Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
+					<tr>
+					<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
+					<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
+					<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
+					<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
+					<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
+					<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
+					
 				</tr>
 					<tr>
-					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createauthor.php"><button>Create Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createpublisher.php"><button>Create  Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="creategenres.php"><button>Create  Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createemployee.php"><button>Create  Employee Data</button></td>
-
+					<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
+					<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
+					<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
+					<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
+					<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
+					<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
 				</tr>
-			</tbody>
 		</table>
+		</div>
 		<!--- LINKS CONTENT SECTION ENDS --->
 		<hr>
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
-		<fieldset>
-
-		<legend>CREATE AUTHOR CONTENT</legend>
-			
+		<div class="dataentrysection">
+			<div >
+				<h3>CREATE EMPLOYEE CONTENT</h3>
+			</div>	
 
 			<form class="" id="mediainputform" action="actions/a_createemployee.php" method="POST">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Employee Code</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Empl_Code" placeholder="00000000" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Empl_Code" placeholder="00000000">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Name</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Name" placeholder="Name" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Name" placeholder="Name">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Surname</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Surname" placeholder="Surname" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Surname" placeholder="Surname">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Email Address</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Email" placeholder="abcde@cfpubliclibrary.at" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Email" placeholder="abcde@cfpubliclibrary.at">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Department</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Department" placeholder="Department" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Department" placeholder="Department">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Password</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="Password" placeholder="&&&&&&&&&&&&&&" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Password" placeholder="&&&&&&&&&&&&&&">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
-						<button type="submit">Insert Employee</button>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<button class="btn btn-default" type="submit">Insert Employee</button>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<a href="indexcfpublib.php"><button type="button">Back</button>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<a href="indexcfpublib.php"><button class="btn btn-default" type="button">Back</button></a>
 						</div>
 					</div>
 				</form>
-
-			</fieldset>
+		</div>
 			<!--- ADD CONTENT TO SYSTEM SECTION ENDS --->
 			<br>
 			<br>
@@ -132,7 +135,6 @@
 				</div>
 			</footer>
 			<!--- END OF FOOTER SECTION --->
-		</footer>
 	</div> <!-- /container -->
 </body>
 

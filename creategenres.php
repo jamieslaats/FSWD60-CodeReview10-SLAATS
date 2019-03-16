@@ -15,13 +15,15 @@
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Bootstrap Javascript core -->
-	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>	
-
 <body>
+	
+
 	<div class="container">
+	
 		<!--- HEADER SECTION BEGINS --->
 		<header id="header" class="header">
 			<div class="headerlogo" id="headerlogo">
@@ -29,58 +31,60 @@
 			</div>
 		</header><!-- /HEADER -->
 		<!--- LINKS CONTENT SECTION BEGINS --->
-		<table>
-			<caption><h1>Content Management System</h1></caption>
-			<tbody>
+		<div class="headertitle" id="headertitle" >
+			<h1>Content Management System</h1>
+		</div>
+		<div class="">
+		<table class="table table-responsive">
 				<tr>
-					<td colspan="" rowspan="" headers=""><a href="viewmedia.php"><button>View Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewauthor.php"><button>View Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewpublisher.php"><button>View Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewgenres.php"><button>View Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="viewemployee.php"><button>View Employee Data</button></td>
-					<td colspan="" rowspan="2" headers=""><a href="logout.php"><button>Logout</button></td>
+					<tr>
+					<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
+					<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
+					<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
+					<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
+					<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
+					<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
+					
 				</tr>
 					<tr>
-					<td colspan="" rowspan="" headers=""><a href="createmedia.php"><button>Create Media Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createauthor.php"><button>Create Author Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createpublisher.php"><button>Create  Publisher Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="creategenres.php"><button>Create  Genres Data</button></td>
-					<td colspan="" rowspan="" headers=""><a href="createemployee.php"><button>Create  Employee Data</button></td>
-
+					<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
+					<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
+					<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
+					<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
+					<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
+					<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
 				</tr>
-			</tbody>
 		</table>
+		</div>
 		<!--- LINKS CONTENT SECTION ENDS --->
 		<hr>
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
-		<fieldset>
+		<div class="dataentrysection">
+			<div >
+				<h3>CREATE GENRES CONTENT</h3>
+			</div>	
 
-		<legend>CREATE GENRES CONTENT</legend>
-
-			<form class="" id="mediainputform" action="actions/a_creategenres.php" method="POST">
+			<form id="mediainputform" action="actions/a_creategenres.php" method="POST">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Genre Name</label>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="GenreName" placeholder="Name" />
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="GenreName" placeholder="Name">
 					</div>
 				</div>
 				
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
-						<button type="submit">Insert Genre</button>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<button class="btn btn-default" type="submit">Insert Genre</button>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<a href="indexcfpublib.php"><button type="button">Back</button>
-						</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<a href="indexcfpublib.php"><button class="btn btn-default" type="button">Back</button></a>
 					</div>
-				</form>
-
-			</fieldset>
+			</form>
+		</div>
 			<!--- ADD CONTENT TO SYSTEM SECTION ENDS --->
 			<br>
 			<br>
-			<!---FOOTER SECTION BEGINS --->
 			<footer id="footer">
 				<div>
 					<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
@@ -89,9 +93,6 @@
 					<p>Jamie Slaats - CodeFactory 2019&#169;</p>
 				</div>
 			</footer>
-			<!--- END OF FOOTER SECTION --->
-		</footer>
 	</div> <!-- /container -->
 </body>
-
 </html>
