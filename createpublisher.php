@@ -8,13 +8,15 @@
 	<meta name="description" content="CF Public Library">
 	<meta name="Jamie Slaats" content="CF Public Library">
 	<link rel="icon" href="../../favicon.ico">
-	<title>Add Media Data Page - CF Public Library</title>
+	<title>Create Publisher Page - CF Public Library</title>
 	<!-- Custom styles for this template -->
 	<link href="CSS/headertablefooter.css" rel="stylesheet">
 	<link href="CSS/signin.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Bootstrap Javascript core -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
@@ -53,7 +55,7 @@
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
 		<fieldset>
 
-		<legend>ADD PUBLISHER CONTENT</legend>
+		<legend>CREATE PUBLISHER CONTENT</legend>
 			
 
 			<form class="" id="mediainputform" action="actions/a_createmedia.php" method="POST">
