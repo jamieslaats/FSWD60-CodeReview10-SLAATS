@@ -74,7 +74,7 @@
 					</div>
 				</div>
 				
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div id="labellettering" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<button class="btn btn-default" type="submit">Insert Genre</button>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

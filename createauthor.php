@@ -84,21 +84,13 @@
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label id="labellettering">Media Focus</label>
 					</div>
-						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group" align="left">
-					    <select formControlName="status" class="form-control" name="MediaFocus">
-					     		<option value="">Select One</option>
-					            <option value="Book">Book</option>
-					            <option value="CD">CD</option>
-					            <option value="DVD">DVD</option>
-					    </select>
-					    </div> -->
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<input type="text" name="MediaFocus" placeholder="Book or CD or DVD etc.">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<button class="btn btn-default" type="submit">Insert Author</button>
+					<div  id="labellettering" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<button  class="btn btn-default" type="submit">Insert Author</button>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<a href="indexcfpublib.php"><button class="btn btn-default" type="button">Back</button></a>

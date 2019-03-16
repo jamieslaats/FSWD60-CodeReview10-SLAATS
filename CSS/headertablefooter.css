@@ -37,10 +37,16 @@ td {
   text-align: center;
 }
 
+#labellettering {
+ padding-left: 150px;
+}
+
 #mediainputform {
   font-size: 1.2em;
 }
-
+.fas {
+  color: #887A79;
+}
 
 #footer {
 	padding: 40px 0px 10px 0px;
