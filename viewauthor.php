@@ -94,8 +94,8 @@
            <td>".$row['Created_at']."</td>
            <td>".$row['Updated_at']."</td>
            <td>
-           <a href='editing\updateauthor.php?Author_ID=".$row['Author_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='editing\deleteauthor.php?Author_ID=".$row['Author_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+           <a href='updateauthor.php?Author_ID=".$row['Author_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+           <a href='deleteauthor.php?Author_ID=".$row['Author_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
            </td>
            </tr>";
          }

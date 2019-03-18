@@ -60,7 +60,7 @@
 
 			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<H3>UPDATE AUTHOR DATA</H3>
+				<H3>DELETE EMPLOYEE DATA</H3>
 			</div>
 			<hr>
 			<div>
@@ -68,13 +68,13 @@
 
 				require_once 'actions/db_connect.php';
 
-				if($_GET['Publ_ID']) {
-					$publid = $_GET['Publ_ID'];
+				if($_GET['Employee_ID']) {
+					$employeeid = $_GET['Employee_ID'];
 
-					$sql = "SELECT * FROM publishers WHERE Publ_ID = {$publid}";
+                    $sql = "SELECT * FROM employee WHERE Employee_ID = {$employeeid}";
                 $result = $connect->query($sql); // mysqli_query($mysqli, $sql)
 
-                $data = $result->fetch_assoc(); // mysqli_fetch_assoc($result)
+                $data = $result->fetch_assoc(); // mzsqli_fetch_assoc($result)
 
             }
             ?>
@@ -82,7 +82,15 @@
             <form class="" id="mediainputform" method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Name of Publisher</label>
+                        <label id="labellettering">Employee Code</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Empl_Code" value="<?php echo $data['Empl_Code'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Name</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input type="text" name="Name" value="<?php echo $data['Name'] ?>">
@@ -90,96 +98,72 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Address</label>
+                        <label id="labellettering">Surname</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Address" value="<?php echo $data['Address'] ?>">
+                        <input type="text" name="Surname" value="<?php echo $data['Surname'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Postal Code/Zip Code</label>
+                        <label id="labellettering">Email Address</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="PostCode" value="<?php echo $data['PostCode'] ?>">
+                        <input type="text" name="Email" value="<?php echo $data['Email'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">City</label>
+                        <label id="labellettering">Department</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="City" value="<?php echo $data['City'] ?>">
+                        <input type="text" name="Department" value="<?php echo $data['Department'] ?>">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Country</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Country" value="<?php echo $data['Country'] ?>">
-                    </div>
+            </div>
+            <div class="row">
+                <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button  id="updatebtn" class="btn btn-default" type="submit">Delete Employee</button>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Size</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Size" value="<?php echo $data['Size'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button  id="updatebtn" class="btn btn-default" type="submit">Update Publisher</button>
-                    </div>
-                </div>
-                </form>
+            </div>
+        </form>
 
-            <?php
+        <?php
 
-            require_once 'actions/db_connect.php';
+        require_once 'actions/db_connect.php';
 
-            if($_POST) {
-                $pubname = $_POST['Name'];
-                $pubaddress = $_POST['Address'];
-                $pubpostcode = $_POST['PostCode'];
-                $pubcity = $_POST['City'];
-                $pubcountry = $_POST['Country'];
-                $pubsize = $_POST['Size'];
+        if($_POST) {
+            $employeeid = $_GET['Employee_ID'];
 
-                $publisherid = $_GET['Publ_ID'];
-
-                $sql = "UPDATE publishers SET Name = '$pubname', Address = '$pubaddress', PostCode = '$pubpostcode', City = '$pubcity', Country = '$pubcountry', Size = '$pubsize' WHERE Publ_ID = {$publisherid}";
-                if($connect->query($sql) === TRUE) {
-                    echo "<p>Successfully Updated</p>";
-                    echo "<a href='viewpublisher.php?Publ_ID=".$publid."'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
-                } else {
-                    echo "Error while updating record : ". $connect->error;
-                }
-
-                $connect->close();
-
+            $sql = "DELETE FROM employee WHERE Employee_ID = {$employeeid}";
+            if($connect->query($sql) === TRUE) {
+                echo "<p>Record Successfully Deleted!!</p>";
+                echo "<a href='viewemployee.php'><button  class='btn btn-default' type='button'>Back to View Employees</button></a>";
+            } else {
+                echo "Error updating record : " . $connect->error;
             }
 
-            ?>
+            $connect->close();
+        }
+        ?>
 
-        </div>
-        <br>
-        <br>
+    </div>
+    <br>
+    <br>
 
-        <!---ENDS TABLE AND DATABASE DATA PULL--->
+    <!---ENDS TABLE AND DATABASE DATA PULL--->
 
-        <!---FOOTER SECTION BEGINS --->
-        <footer id="footer">
-        	<div>
-        		<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
-        	</div>
-        	<div class="copyright text-center">
-        		<p>Jamie Slaats - CodeFactory 2019&#169;</p>
-        	</div>
-        </footer>
-        <!--- END OF FOOTER SECTION --->
-    </footer>
+    <!---FOOTER SECTION BEGINS --->
+    <footer id="footer">
+     <div>
+      <img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+  </div>
+  <div class="copyright text-center">
+      <p>Jamie Slaats - CodeFactory 2019&#169;</p>
+  </div>
+</footer>
+<!--- END OF FOOTER SECTION --->
+</footer>
 </div> <!-- /container -->
 </body>
 

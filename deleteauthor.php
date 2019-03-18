@@ -60,7 +60,7 @@
 
 			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<H3>UPDATE AUTHOR DATA</H3>
+				<H3>DELETE AUTHOR DATA</H3>
 			</div>
 			<hr>
 			<div>
@@ -68,93 +68,62 @@
 
 				require_once 'actions/db_connect.php';
 
-				if($_GET['Publ_ID']) {
-					$publid = $_GET['Publ_ID'];
+				if($_GET['Author_ID']) {
+					$authorid = $_GET['Author_ID'];
 
-					$sql = "SELECT * FROM publishers WHERE Publ_ID = {$publid}";
+					$sql = "SELECT * FROM authors WHERE Author_ID = {$authorid}";
                 $result = $connect->query($sql); // mysqli_query($mysqli, $sql)
 
-                $data = $result->fetch_assoc(); // mysqli_fetch_assoc($result)
+                $data = $result->fetch_assoc(); // mzsqli_fetch_assoc($result)
 
             }
             ?>
 
             <form class="" id="mediainputform" method="POST">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Name of Publisher</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Name" value="<?php echo $data['Name'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Address</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Address" value="<?php echo $data['Address'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Postal Code/Zip Code</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="PostCode" value="<?php echo $data['PostCode'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">City</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="City" value="<?php echo $data['City'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Country</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Country" value="<?php echo $data['Country'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Size</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Size" value="<?php echo $data['Size'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button  id="updatebtn" class="btn btn-default" type="submit">Update Publisher</button>
-                    </div>
-                </div>
-                </form>
+            	<div class="row">
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<label id="labellettering">Name</label>
+            		</div>
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<input type="text" name="Name" value="<?php echo $data['Name'] ?>">
+            		</div>
+            	</div>
+            	<div class="row">
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<label id="labellettering">Surname</label>
+            		</div>
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<input type="text" name="Surname" value="<?php echo $data['Surname'] ?>">
+            		</div>
+            	</div>
+            	<div class="row">
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<label id="labellettering">Media Focus</label>
+            		</div>
+            		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            			<input type="text" name="MediaFocus" value="<?php echo $data['MediaFocus'] ?>">
+            		</div>
+            	</div>
+            	<div class="row">
+            		<div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            			<button  id="updatebtn" class="btn btn-default" type="submit">Delete Author</button>
+            		</div>
+            	</div>
+            </form>
 
             <?php
 
             require_once 'actions/db_connect.php';
 
             if($_POST) {
-                $pubname = $_POST['Name'];
-                $pubaddress = $_POST['Address'];
-                $pubpostcode = $_POST['PostCode'];
-                $pubcity = $_POST['City'];
-                $pubcountry = $_POST['Country'];
-                $pubsize = $_POST['Size'];
+                $authorid = $_GET['Author_ID'];
 
-                $publisherid = $_GET['Publ_ID'];
-
-                $sql = "UPDATE publishers SET Name = '$pubname', Address = '$pubaddress', PostCode = '$pubpostcode', City = '$pubcity', Country = '$pubcountry', Size = '$pubsize' WHERE Publ_ID = {$publisherid}";
+                $sql = "DELETE FROM authors WHERE Author_ID = {$authorid}";
                 if($connect->query($sql) === TRUE) {
-                    echo "<p>Successfully Updated</p>";
-                    echo "<a href='viewpublisher.php?Publ_ID=".$publid."'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
+                    echo "<p>Record Successfully Deleted!!</p>";
+                    echo "<a href='viewauthor.php'><button  class='btn btn-default' type='button'>Back to View Author</button></a>";
                 } else {
-                    echo "Error while updating record : ". $connect->error;
+                    echo "Error updating record : " . $connect->error;
                 }
 
                 $connect->close();

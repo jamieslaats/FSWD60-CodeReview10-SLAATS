@@ -60,7 +60,7 @@
 
 			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<H3>UPDATE AUTHOR DATA</H3>
+				<H3>DELETE PUBLISHER DATA</H3>
 			</div>
 			<hr>
 			<div>
@@ -130,31 +130,24 @@
                 </div>
                 <div class="row">
                     <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button  id="updatebtn" class="btn btn-default" type="submit">Update Publisher</button>
+                        <button  id="updatebtn" class="btn btn-default" type="submit">Delete Publisher</button>
                     </div>
                 </div>
-                </form>
+            </form>
 
             <?php
 
             require_once 'actions/db_connect.php';
 
             if($_POST) {
-                $pubname = $_POST['Name'];
-                $pubaddress = $_POST['Address'];
-                $pubpostcode = $_POST['PostCode'];
-                $pubcity = $_POST['City'];
-                $pubcountry = $_POST['Country'];
-                $pubsize = $_POST['Size'];
-
                 $publisherid = $_GET['Publ_ID'];
 
-                $sql = "UPDATE publishers SET Name = '$pubname', Address = '$pubaddress', PostCode = '$pubpostcode', City = '$pubcity', Country = '$pubcountry', Size = '$pubsize' WHERE Publ_ID = {$publisherid}";
+                $sql = "DELETE FROM publishers WHERE Publ_ID = {$publisherid}";
                 if($connect->query($sql) === TRUE) {
-                    echo "<p>Successfully Updated</p>";
-                    echo "<a href='viewpublisher.php?Publ_ID=".$publid."'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
+                    echo "<p>Record Successfully Deleted!!</p>";
+                    echo "<a href='viewpublishers.php'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
                 } else {
-                    echo "Error while updating record : ". $connect->error;
+                    echo "Error updating record : " . $connect->error;
                 }
 
                 $connect->close();

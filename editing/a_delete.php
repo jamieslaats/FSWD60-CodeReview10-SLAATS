@@ -8,7 +8,7 @@ if($_POST) {
 	$sql = "DELETE FROM media WHERE Media_ID = {$mediaid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewmedia.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewmedia.php'><button  class='btn btn-default' type='button'>Back to View Media</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}
@@ -21,7 +21,7 @@ if($_POST) {
 	$sql = "DELETE FROM author WHERE Author_ID = {$authorid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewauthorsandgenres.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewauthorsandgenres.php'><button  class='btn btn-default' type='button'>Back to View Authors</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}
@@ -34,7 +34,7 @@ if($_POST) {
 	$sql = "DELETE FROM publishers WHERE Publ_ID = {$publisherid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewpublishers.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewpublishers.php'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}
@@ -47,7 +47,7 @@ if($_POST) {
 	$sql = "DELETE FROM employee WHERE Employee_ID = {$employeeid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewemployee.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewemployee.php'><button  class='btn btn-default' type='button'>Back to View Employees</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}
@@ -60,7 +60,7 @@ if($_POST) {
 	$sql = "DELETE FROM genres WHERE Genres_ID = {$genresid}";
 	if($connect->query($sql) === TRUE) {
 		echo "<p>Record Successfully Deleted!!</p>";
-		echo "<a href='../viewgenres.php'><button type='button'>Back</button></a>";
+		echo "<a href='../viewgenres.php'><button  class='btn btn-default' type='button'>Back to View Genres</button></a>";
 	} else {
 		echo "Error updating record : " . $connect->error;
 	}

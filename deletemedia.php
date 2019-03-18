@@ -60,7 +60,7 @@
 
 			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<H3>UPDATE AUTHOR DATA</H3>
+				<H3>DELETE MEDIA DATA</H3>
 			</div>
 			<hr>
 			<div>
@@ -68,13 +68,13 @@
 
 				require_once 'actions/db_connect.php';
 
-				if($_GET['Publ_ID']) {
-					$publid = $_GET['Publ_ID'];
+				if($_GET['Media_ID']) {
+					$mediaid = $_GET['Media_ID'];
 
-					$sql = "SELECT * FROM publishers WHERE Publ_ID = {$publid}";
+					$sql = "SELECT * FROM media WHERE Media_ID = {$mediaid}";
                 $result = $connect->query($sql); // mysqli_query($mysqli, $sql)
 
-                $data = $result->fetch_assoc(); // mysqli_fetch_assoc($result)
+                $data = $result->fetch_assoc(); // mzsqli_fetch_assoc($result)
 
             }
             ?>
@@ -82,79 +82,136 @@
             <form class="" id="mediainputform" method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Name of Publisher</label>
+                        <label id="labellettering">ISBN Number</label>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Name" value="<?php echo $data['Name'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Address</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Address" value="<?php echo $data['Address'] ?>">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
+                        <input type="text" name="ISBN_No" value="<?php echo $data['ISBN_No'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Postal Code/Zip Code</label>
+                        <label id="labellettering">Media Code</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="PostCode" value="<?php echo $data['PostCode'] ?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">City</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="City" value="<?php echo $data['City'] ?>">
+                        <input type="text" name="MediaCode" value="<?php echo $data['MediaCode'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Country</label>
+                        <label id="labellettering">Title of Media</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Country" value="<?php echo $data['Country'] ?>">
+                        <input type="text" name="Title" value="<?php echo $data['Title'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Size</label>
+                        <label id="labellettering">Title Image</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="Size" value="<?php echo $data['Size'] ?>">
+                        <input type="text" name="TitleImage" value="<?php echo $data['TitleImage'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Description</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Description" value="<?php echo $data['Description'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Media Type</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="MediaType" value="<?php echo $data['MediaType'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Publisher Date</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="PublisherDate" value="<?php echo $data['PublisherDate'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Total Number of Units</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Total_Count" value="<?php echo $data['Total_Count'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Number of Units Available</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Avail_Count" value="<?php echo $data['Avail_Count'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Media Location</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Location_ID" value="<?php echo $data['Location_ID'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label for="fk_Author_ID" id="labellettering">Author ID</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="fk_Author_ID" value="<?php echo $data['fk_Author_ID'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Publisher ID</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="fk_Publ_ID" value="<?php echo $data['fk_Publ_ID'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Genres ID</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="fk_Genres_ID" value="<?php echo $data['fk_Genres_ID'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Admin ID</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="fk_Admin_ID" value="<?php echo $data['fk_Admin_ID'] ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button  id="updatebtn" class="btn btn-default" type="submit">Update Publisher</button>
+                        <button  id="updatebtn" class="btn btn-default" type="submit">Delete Media</button>
                     </div>
                 </div>
-                </form>
+            </form>
 
             <?php
 
             require_once 'actions/db_connect.php';
 
             if($_POST) {
-                $pubname = $_POST['Name'];
-                $pubaddress = $_POST['Address'];
-                $pubpostcode = $_POST['PostCode'];
-                $pubcity = $_POST['City'];
-                $pubcountry = $_POST['Country'];
-                $pubsize = $_POST['Size'];
+                $mediaid = $_GET['Media_ID'];
 
-                $publisherid = $_GET['Publ_ID'];
-
-                $sql = "UPDATE publishers SET Name = '$pubname', Address = '$pubaddress', PostCode = '$pubpostcode', City = '$pubcity', Country = '$pubcountry', Size = '$pubsize' WHERE Publ_ID = {$publisherid}";
+                $sql = "DELETE FROM media WHERE Media_ID = {$mediaid}";
                 if($connect->query($sql) === TRUE) {
-                    echo "<p>Successfully Updated</p>";
-                    echo "<a href='viewpublisher.php?Publ_ID=".$publid."'><button  class='btn btn-default' type='button'>Back to View Publishers</button></a>";
+                    echo "<p>Record Successfully Deleted!!</p>";
+                    echo "<a href='viewmedia.php'><button  class='btn btn-default' type='button'>Back to View Media</button></a>";
                 } else {
-                    echo "Error while updating record : ". $connect->error;
+                    echo "Error updating record : " . $connect->error;
                 }
 
                 $connect->close();
