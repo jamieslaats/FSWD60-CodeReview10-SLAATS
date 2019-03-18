@@ -138,6 +138,14 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label id="labellettering">Media Location</label>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Location_ID" placeholder="0000">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<label for="fk_Author_ID" id="labellettering">Author ID</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

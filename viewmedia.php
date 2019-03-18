@@ -116,8 +116,8 @@
            <td>".$row['Created_at']."</td>
            <td>".$row['Updated_at']."</td>
            <td> 
-           <a href='update.php?id=".$row['Media_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='delete.php?id=".$row['Media_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+           <a href='updatemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+           <a href='deletemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
            </td>
            </tr>";
          }

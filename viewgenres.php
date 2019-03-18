@@ -90,8 +90,8 @@
            <td>".$row['Created_at']."</td>
            <td>".$row['Updated_at']."</td>
            <td>
-           <a href='update.php?id=".$row['Genres_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='delete.php?id=".$row['Genres_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+           <a href='updategenres.php?Genres_ID=".$row['Genres_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+           <a href='deletegenres.php?Genres_ID=".$row['Genres_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
            </td>
            </tr>";
          }
