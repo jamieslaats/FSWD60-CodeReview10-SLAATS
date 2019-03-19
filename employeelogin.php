@@ -40,7 +40,7 @@
                 <li>View/Add/Update Employee Data.</li>
             </ol>
         </div>
-        <form class="form-signin" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+        <form class="form-signin" method="POST" action="indexcfpublib.php">
             <h2 class="form-signin-heading">Please Sign In</h2>
             <label for="inputEmpID" class="sr-only">Employee ID</label>
             <input type="text" id="inputEmplID" class="form-control" placeholder="Employee ID" name="Empl_Code" required autofocus>
@@ -53,7 +53,7 @@
                     <input type="checkbox" value="remember-me"> Remember Me
                 </label>
             </div>
-            <button id="loginbtn" class="btn btn-lg btn-block" type="submit" name="submit">Sign in</button>
+            <a href="indexcfpublib.php"><button id="loginbtn" class="btn btn-lg btn-block" type="submit" name="submit"><a href="indexcfpublib.php">Sign in</button></a>
         </form>
         <!---CONTENT SECTION ENDS --->
         <footer id="footer">
