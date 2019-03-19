@@ -74,8 +74,9 @@ if($_POST) {
  $emailaddress = $_POST['Email'];
  $department = $_POST['Department'];
  $password = $_POST['Password'];
+ $rules = $_POST['Rules'];
 
- $sql = "INSERT INTO employee (Empl_Code, Name, Surname, Email, Department, Password) VALUES ('$emplcode', '$fname', '$lname','$emailaddress','$department','$password')";
+ $sql = "INSERT INTO employee (Empl_Code, Name, Surname, Email, Department, Password, Rules) VALUES ('$emplcode', '$fname', '$lname','$emailaddress','$department','$password','$rules')";
  if($connect->query($sql) === TRUE) {
    echo "<p>New Record Successfully Created</p>";
    echo "<a href='../createemployee.php'><button class='btn btn-default' type='button'>Create Another Record</button></a>";

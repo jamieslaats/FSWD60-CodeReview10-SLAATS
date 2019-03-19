@@ -34,98 +34,100 @@
 			<h1>Content Management System</h1>
 		</div>
 		<div class="">
-		<table class="table table-responsive">
+			<table class="table table-responsive">
 				<tr>
 					<tr>
-					<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
-					<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
-					<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
-					<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
-					<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
-					<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
-					
-				</tr>
+						<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
+						<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
+						<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
+						<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
+						<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
+						<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
+
+					</tr>
 					<tr>
-					<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
-					<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
-					<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
-					<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
-					<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
-					<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
-				</tr>
-		</table>
-		</div>
-		<hr>
-		<!---CONTENT SECTION ENDS --->
+						<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
+						<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
+						<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
+						<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
+						<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
+						<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
+					</tr>
+				</table>
+			</div>
+			<hr>
+			<!---CONTENT SECTION ENDS --->
 
-		<!---TABLE AND DATABASE DATA PULL BEGINS--->
-		<div>
-			<H3>VIEW EMPLOYEE DATA</H3>
-		</div>
-		<hr>
-		<div class="manageTable">
-   			<table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
-     			<thead>
-       				<tr>
-				       	<th>Employee Table ID</th>
-				        <th>Employee Code</th>
-				        <th>Name</th>
-				        <th>Surname</th>
-				        <th>Email</th>
-				        <th>Department</th>
-				        <th>Password</th>
-				        <th>Creation Date</th>
-				        <th>Last Updated</th>
-				        <th>Edit/Delete</th>
-       				</tr>
-     			</thead>
-      		<tbody>
-
-       <?php
-       require_once 'actions/db_connect.php';
-
-       $sql = "SELECT * FROM employee";
-       $result = $connect->query($sql);
-
-       if($result->num_rows > 0) {
-         while($row = $result->fetch_assoc()) {
-           echo "<tr>
-           <td>".$row['EmpAdmin_ID']."</td> 
-           <td>".$row['Empl_Code']."</td>
-           <td>".$row['Name']."</td>
-           <td>".$row['Surname']."</td>
-           <td>".$row['Email']."</td>
-           <td>".$row['Department']."</td>
-           <td>".$row['Password']."</td>
-           <td>".$row['Created_at']."</td>
-           <td>".$row['Updated_at']."</td>
-           <td> 
-           <a href='updateemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='deleteemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
-           </td>
-           </tr>";
-         }
-       } else {
-         echo "<tr><td colspan='9'><center>No Data Avaliable</center></td></tr>";
-       }
-       ?>
-     		</tbody>
-   			</table>
- 		</div>
-		<!---ENDS TABLE AND DATABASE DATA PULL--->
-
-		<!---FOOTER SECTION BEGINS --->
-		<footer id="footer">
+			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+				<H3>VIEW EMPLOYEE DATA</H3>
 			</div>
-			<div class="copyright text-center">
-				<p>Jamie Slaats - CodeFactory 2019&#169;</p>
+			<hr>
+			<div class="manageTable">
+				<table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
+					<thead>
+						<tr>
+							<th>Employee Table ID</th>
+							<th>Employee Code</th>
+							<th>Name</th>
+							<th>Surname</th>
+							<th>Email</th>
+							<th>Department</th>
+							<th>Password</th>
+							<th>Rules</th>
+							<th>Creation Date</th>
+							<th>Last Updated</th>
+							<th>Edit/Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<?php
+						require_once 'actions/db_connect.php';
+
+						$sql = "SELECT * FROM employee";
+						$result = $connect->query($sql);
+
+						if($result->num_rows > 0) {
+							while($row = $result->fetch_assoc()) {
+								echo "<tr>
+								<td>".$row['EmpAdmin_ID']."</td> 
+								<td>".$row['Empl_Code']."</td>
+								<td>".$row['Name']."</td>
+								<td>".$row['Surname']."</td>
+								<td>".$row['Email']."</td>
+								<td>".$row['Department']."</td>
+								<td>".$row['Password']."</td>
+								<td>".$row['Rules']."</td>
+								<td>".$row['Created_at']."</td>
+								<td>".$row['Updated_at']."</td>
+								<td> 
+								<a href='updateemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+								<a href='deleteemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+								</td>
+								</tr>";
+							}
+						} else {
+							echo "<tr><td colspan='9'><center>No Data Avaliable</center></td></tr>";
+						}
+						?>
+					</tbody>
+				</table>
 			</div>
+			<!---ENDS TABLE AND DATABASE DATA PULL--->
+
+			<!---FOOTER SECTION BEGINS --->
+			<footer id="footer">
+				<div>
+					<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+				</div>
+				<div class="copyright text-center">
+					<p>Jamie Slaats - CodeFactory 2019&#169;</p>
+				</div>
+			</footer>
+			<!--- END OF FOOTER SECTION --->
 		</footer>
-		<!--- END OF FOOTER SECTION --->
-	</footer>
-</div> <!-- /container -->
+	</div> <!-- /container -->
 </body>
 
 </html>

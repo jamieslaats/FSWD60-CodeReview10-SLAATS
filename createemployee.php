@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,6 +119,14 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<input type="text" name="Password" placeholder="&&&&&&&&&&&&&&">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<label id="labellettering">Rules</label>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<input type="text" name="Rules" placeholder="User or Admin">
 					</div>
 				</div>
 				<div class="row">

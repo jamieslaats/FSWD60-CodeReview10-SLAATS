@@ -120,6 +120,30 @@
                         <input type="text" name="Department" value="<?php echo $data['Department'] ?>">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Department</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Department" value="<?php echo $data['Department'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Password</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Password" value="<?php echo $data['Password'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label id="labellettering">Rules</label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Rules" value="<?php echo $data['Rules'] ?>">
+                    </div>
+                </div>
                 </div>
                 <div class="row">
                     <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -138,10 +162,11 @@
                 $lname = $_POST['Surname'];
                 $emailaddress = $_POST['Email'];
                 $department = $_POST['Department'];
+                $rules = $_POST['Rules'];
 
                 $employeeid = $_GET['EmpAdmin_ID'];
 
-                $sql = "UPDATE employee SET Empl_Code = '$emplcode', Name = '$fname', Surname = '$lname', Email = '$emailaddress', Department = '$department' WHERE EmpAdmin_ID = {$employeeid}";
+                $sql = "UPDATE employee SET Empl_Code = '$emplcode', Name = '$fname', Surname = '$lname', Email = '$emailaddress', Department = '$department', Rules = '$rules' WHERE EmpAdmin_ID = {$employeeid}";
                 if($connect->query($sql) === TRUE) {
                     echo "<p>Successfully Updated</p>";
                     echo "<a href='viewemployee.php?EmpAdmin_ID=".$employeeid."'><button  class='btn btn-default' type='button'>Back to View Employee</button></a>";
