@@ -162,37 +162,72 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label for="fk_Author_ID" id="labellettering">Author ID</label>
+                        <label for="fk_Author_ID" id="labellettering">Author Name</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="fk_Author_ID" value="<?php echo $data['fk_Author_ID'] ?>">
-                    </div>
+                        <select  name="fk_Author_ID">
+                            <?php 
+                            require_once 'actions/db_connect.php';
+
+                            $sql = $connect->query("SELECT * FROM `authors`");
+                                while($mediaAuthor = $sql->fetch_assoc()){
+                                    echo "<option value=" .$mediaAuthor['Author_ID']. ">".$mediaAuthor['Author_ID']. " - ".$mediaAuthor['Name']. " ". $mediaAuthor['Surname']."</option>";
+                                }   
+                             ?>
+                        </select>
+                    </div>                      
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Publisher ID</label>
+                        <label for="fk_Author_ID" id="labellettering">Publisher Name</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="fk_Publ_ID" value="<?php echo $data['fk_Publ_ID'] ?>">
-                    </div>
+                        <select  name="fk_Publ_ID">
+                            <?php 
+                            require_once 'actions/db_connect.php';
+
+                            $sql = $connect->query("SELECT * FROM `publishers`");
+                                while($mediaPubl = $sql->fetch_assoc()){
+                                    echo "<option value=" .$mediaPubl['Publ_ID']. ">".$mediaPubl['Publ_ID']. " - ".$mediaPubl['Name']. " -  ". $mediaPubl['Country']."</option>";
+                                }   
+                             ?>
+                        </select>
+                    </div>                      
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Genres ID</label>
+                        <label for="fk_Author_ID" id="labellettering">Genre</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="fk_Genres_ID" value="<?php echo $data['fk_Genres_ID'] ?>">
-                    </div>
+                        <select  name="fk_Genres_ID">
+                            <?php 
+                            require_once 'actions/db_connect.php';
+
+                            $sql = $connect->query("SELECT * FROM `genres`");
+                                while($mediaGenres = $sql->fetch_assoc()){
+                                    echo "<option value=" .$mediaGenres['Genres_ID']. ">".$mediaGenres['Genres_ID']. " - ".$mediaGenres['GenreName']. "</option>";
+                                }   
+                             ?>
+                        </select>
+                    </div>                      
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label id="labellettering">Admin ID</label>
+                        <label for="fk_Author_ID" id="labellettering">Admin Name</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="fk_Admin_ID" value="<?php echo $data['fk_Admin_ID'] ?>">
-                    </div>
+                        <select  name="fk_EmpAdmin_ID">
+                            <?php 
+                            require_once 'actions/db_connect.php';
+
+                            $sql = $connect->query("SELECT * FROM `employee`");
+                                while($mediaAdmin = $sql->fetch_assoc()){
+                                    echo "<option value=" .$mediaAdmin['EmpAdmin_ID']. ">".$mediaAdmin['EmpAdmin_ID']. " - ".$mediaAdmin['Name']. " ". $mediaAdmin['Surname']." -  ". $mediaAdmin['Department']."</option>";
+                                }   
+                             ?>
+                        </select>
+                    </div>                      
                 </div>
-                <div class="row">
                     <div  id="labelletteringediting" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <button  id="updatebtn" class="btn btn-default" type="submit">Update Media</button>
                     </div>
@@ -217,11 +252,11 @@
                 $fkauthorid = $_POST['fk_Author_ID'];
                 $fkpublid = $_POST['fk_Publ_ID'];
                 $fkgenresid = $_POST['fk_Genres_ID'];
-                $fkadminid = $_POST['fk_Admin_ID'];
+                $fkempadminid = $_POST['fk_EmpAdmin_ID'];
 
                 $mediaid = $_GET['Media_ID'];
 
-                $sql = "UPDATE media SET ISBN_No = '$isbnno', MediaCode = '$mediacode', Title = '$title', TitleImage = '$titleimage',Description = '$description', MediaType = '$mediatype', PublisherDate = '$publisherdate', Total_Count = '$totalcount', Avail_Count = '$availcount', Location_ID = '$locationid', fk_Author_ID = '$fkauthorid', fk_Publ_ID = '$fkpublid', fk_Genres_ID = '$fkgenresid', fk_Admin_ID = '$fkadminid' WHERE Media_ID = {$mediaid}";
+                $sql = "UPDATE media SET ISBN_No = '$isbnno', MediaCode = '$mediacode', Title = '$title', TitleImage = '$titleimage',Description = '$description', MediaType = '$mediatype', PublisherDate = '$publisherdate', Total_Count = '$totalcount', Avail_Count = '$availcount', Location_ID = '$locationid', fk_Author_ID = '$fkauthorid', fk_Publ_ID = '$fkpublid', fk_Genres_ID = '$fkgenresid', fk_EmpAdmin_ID = '$fkempadminid' WHERE Media_ID = {$mediaid}";
                 if($connect->query($sql) === TRUE) {
                     echo "<p>Successfully Updated</p>";
                     echo "<a href='viewmedia.php?Media_ID=".$mediaid."'><button  class='btn btn-default' type='button'>Back to View Media</button></a>";

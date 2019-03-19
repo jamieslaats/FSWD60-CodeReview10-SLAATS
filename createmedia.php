@@ -109,7 +109,7 @@
 						<label id="labellettering">Media Type</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="MediaType" placeholder="Select One">
+						<input type="text" name="MediaType" placeholder="Book/CD/DVD/AudioBook/Digital Book">
 					</div>
 				</div>
 				<div class="row">
@@ -146,35 +146,71 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label for="fk_Author_ID" id="labellettering">Author ID</label>
+						<label for="fk_Author_ID" id="labellettering">Author Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="fk_Author_ID" placeholder="0000">
-					</div>
+						<select  name="fk_Author_ID">
+							<?php 
+							require_once 'actions/db_connect.php';
+
+							$sql = $connect->query("SELECT * FROM `authors`");
+								while($mediaAuthor = $sql->fetch_assoc()){
+									echo "<option value=" .$mediaAuthor['Author_ID']. ">".$mediaAuthor['Author_ID']. " - ".$mediaAuthor['Name']. " ". $mediaAuthor['Surname']."</option>";
+								}	
+							 ?>
+						</select>
+					</div>						
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label id="labellettering">Publisher ID</label>
+						<label for="fk_Author_ID" id="labellettering">Publisher Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="fk_Publ_ID" placeholder="000">
-					</div>
+						<select  name="fk_Publ_ID">
+							<?php 
+							require_once 'actions/db_connect.php';
+
+							$sql = $connect->query("SELECT * FROM `publishers`");
+								while($mediaPubl = $sql->fetch_assoc()){
+									echo "<option value=" .$mediaPubl['Publ_ID']. ">".$mediaPubl['Publ_ID']. " - ".$mediaPubl['Name']. " -  ". $mediaPubl['Country']."</option>";
+								}	
+							 ?>
+						</select>
+					</div>						
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label id="labellettering">Genres ID</label>
+						<label for="fk_Author_ID" id="labellettering">Genre</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="fk_Genres_ID" placeholder="000">
-					</div>
+						<select  name="fk_Genres_ID">
+							<?php 
+							require_once 'actions/db_connect.php';
+
+							$sql = $connect->query("SELECT * FROM `genres`");
+								while($mediaGenres = $sql->fetch_assoc()){
+									echo "<option value=" .$mediaGenres['Genres_ID']. ">".$mediaGenres['Genres_ID']. " - ".$mediaGenres['GenreName']. "</option>";
+								}	
+							 ?>
+						</select>
+					</div>						
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label id="labellettering">Admin ID</label>
+						<label for="fk_Author_ID" id="labellettering">Admin Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="fk_Admin_ID" placeholder="000">
-					</div>
+						<select  name="fk_EmpAdmin_ID">
+							<?php 
+							require_once 'actions/db_connect.php';
+
+							$sql = $connect->query("SELECT * FROM `employee`");
+								while($mediaAdmin = $sql->fetch_assoc()){
+									echo "<option value=" .$mediaAdmin['EmpAdmin_ID']. ">".$mediaAdmin['EmpAdmin_ID']. " - ".$mediaAdmin['Name']. " ". $mediaAdmin['Surname']." -  ". $mediaAdmin['Department']."</option>";
+								}	
+							 ?>
+						</select>
+					</div>						
 				</div>
 				<div class="row">
 					<div id="labellettering" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

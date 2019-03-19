@@ -60,7 +60,7 @@
 		<!--- ADD CONTENT TO SYSTEM SECTION BEGINS --->
 		<fieldset>
 
-		<legend>ADD AUTHOR CONTENT</legend>
+		<legend>ADD MEDIA CONTENT</legend>
 		<div class="contentconfirmed">
 
 <?php 
@@ -81,9 +81,9 @@ if($_POST) {
  $fkauthorid = $_POST['fk_Author_ID'];
  $fkpublid = $_POST['fk_Publ_ID'];
  $fkgenresid = $_POST['fk_Genres_ID'];
- $fkadminid = $_POST['fk_Admin_ID'];
+ $fkempadminid = $_POST['fk_EmpAdmin_ID'];
 
- $sql = "INSERT INTO media (ISBN_No,MediaCode, Title, TitleImage, Description, MediaType, PublisherDate, Total_Count, Avail_Count, Location_ID, fk_Author_ID, fk_Publ_ID, fk_Genres_ID, fk_Admin_ID) VALUES ('$isbnno','$mediacode', '$title', '$titleimage', '$description', '$mediatype', '$publisherdate', '$totalcount', '$availcount', '$locationid', '$fkauthorid', '$fkpublid', '$fkgenresid', '$fkadminid')";
+ $sql = "INSERT INTO media (ISBN_No,MediaCode, Title, TitleImage, Description, MediaType, PublisherDate, Total_Count, Avail_Count, Location_ID, fk_Author_ID, fk_Publ_ID, fk_Genres_ID, fk_EmpAdmin_ID) VALUES ('$isbnno','$mediacode', '$title', '$titleimage', '$description', '$mediatype', '$publisherdate', '$totalcount', '$availcount', '$locationid', '$fkauthorid', '$fkpublid', '$fkgenresid', '$fkempadminid')";
  if($connect->query($sql) === TRUE) {
    echo "<p>New Record Successfully Created</p>";
    echo "<a href='../createmedia.php'><button type='button'>Back</button></a>";

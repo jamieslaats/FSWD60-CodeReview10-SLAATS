@@ -2,65 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="CF Database Library" content="CF Public Library">
-    <meta name="Jamie Slaats" content="CF Public Library">
-    <link rel="icon" href="../../favicon.ico">
-    <title>CF Public Library - Open Index Page</title>
-    <!-- Custom styles for this template -->
-    <link href="CSS/headertablefooter.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Bootstrap Javascript core -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="CF Database Library" content="CF Public Library">
+  <meta name="Jamie Slaats" content="CF Public Library">
+  <link rel="icon" href="../../favicon.ico">
+  <title>CF Public Library - Open Index Page</title>
+  <!-- Custom styles for this template -->
+  <link href="CSS/headertablefooter.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Bootstrap Javascript core -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <div class="container">
-    	<!--HEADER SECTION BEGINS -->
-        <header id="header" class="header">
-            <div class="headerlogo" id="headerlogo">
-                <img src="IMG/cfpubliclibrarylogo.png" alt="CF Public Library Logo">
-            </div>
-        </header><!-- /HEADER-->
-        <!--- CONTENT SECTION BEGINS FOR EXTERNAL USERS --->
+  <div class="container">
+   <!--HEADER SECTION BEGINS -->
+   <header id="header" class="header">
+    <div class="headerlogo" id="headerlogo">
+      <img src="IMG/cfpubliclibrarylogo.png" alt="CF Public Library Logo">
+    </div>
+  </header><!-- /HEADER-->
+  <!--- CONTENT SECTION BEGINS FOR EXTERNAL USERS --->
 
-        <div class="welcommessage" id="welcomemessage">
-            <h1>Welcome to the CF Public Library!</h1>
-            <h3>Here you can find a list of all of our current titles and offerings available to you!</h3>
-        </div>
-        <hr>
-        <div class="manageTable">
-            <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>ISBN#</th>
-                        <th>Media Code</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Media Type</th>
-                        <th>Publisher Date</th>
-                        <th>Total Units</th>
-                        <th>Available Units</th>
-                        <th>Unit Location</th>
-                        <th>Author</th>
-                        <th>Publisher</th>
-                        <th>Genre</th>
-                    </tr>
-                </thead>
-            <tbody>
+  <div class="welcommessage" id="welcomemessage">
+    <h1>Welcome to the CF Public Library!</h1>
+    <h3>Here you can find a list of all of our current titles and offerings available to you!</h3>
+  </div>
+  <hr>
+  <div class="manageTable">
+    <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>ISBN#</th>
+          <th>Media Code</th>
+          <th>Title</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Media Type</th>
+          <th>Publisher Date</th>
+          <th>Total Units</th>
+          <th>Available Units</th>
+          <th>Unit Location</th>
+          <th>Author</th>
+          <th>Publisher</th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
 
        <?php
        require_once 'actions/db_connect.php';
 
-       $sql = "SELECT * FROM media";
+       $sql = "SELECT `media`.`ISBN_No`, `media`.`MediaCode`, `media`.`Title`, `media`.`TitleImage`, `media`.`Description`, `media`.`MediaType`, `media`.`PublisherDate`, `media`.`Total_Count`, `media`.`Avail_Count`, `media`.`Location_ID`, `authors`.Name as authorName, `authors`.Surname as authorSurname, `publishers`.Name, `genres`.`GenreName`
+       FROM `media`
+       INNER JOIN `authors` ON `media`.`fk_Author_ID` = `authors`.`Author_ID`
+       INNER JOIN publishers ON `media`.`fk_Publ_ID`  = `publishers`.`Publ_ID`
+       INNER JOIN genres ON `media`.`fk_Genres_ID` = `genres`.`Genres_ID`
+       INNER JOIN `employee` ON `media`.`fk_EmpAdmin_ID` = `employee`.`EmpAdmin_ID`";
+
+       //when createing above like this `authors`.Name as authorName it is making it more simple to remember and link the name. Then used below. 
        $result = $connect->query($sql);
 
        if($result->num_rows > 0) {
@@ -76,37 +83,37 @@
            <td>".$row['Total_Count']."</td>
            <td>".$row['Avail_Count']."</td>
            <td>".$row['Location_ID']."</td>
-           <td>".$row['fk_Author_ID']."</td>
-           <td>".$row['fk_Publ_ID']."</td>
-           <td>".$row['fk_Genres_ID']."</td>
+           <td>".$row['authorName']." " .$row['authorSurname']."</td>
+           <td>".$row['Name']."</td>
+           <td>".$row['GenreName']."</td>
            </tr>";
          }
        } else {
          echo "<tr><td colspan='13'><center>No Data Avaliable</center></td></tr>";
        }
        ?>
-            </tbody>
-            </table>
-        </div>
+     </tbody>
+   </table>
+ </div>
 
 
 
 
-    	<!---FOOTER SECTION BEGINNING --->
-        <footer id="footer">
-            <div>
-               <a class="center-block" href="employeelogin.php"><button class="btn btn-default" type="submit">Employee Login</button></a>
-            </div>
-            <br>
-            <div>
-                <img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
-            </div>
-            <div class="copyright text-center">
-                <p>Jamie Slaats - CodeFactory 2019&#169;</p>
-            </div>
-        </footer>
-        <!--- END OF FOOTER SECTION --->
-    </footer>
-	
+ <!---FOOTER SECTION BEGINNING --->
+ <footer id="footer">
+  <div>
+   <a class="center-block" href="employeelogin.php"><button class="btn btn-default" type="submit">Employee Login</button></a>
+ </div>
+ <br>
+ <div>
+  <img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+</div>
+<div class="copyright text-center">
+  <p>Jamie Slaats - CodeFactory 2019&#169;</p>
+</div>
+</footer>
+<!--- END OF FOOTER SECTION --->
+</footer>
+
 </body>
 </html>

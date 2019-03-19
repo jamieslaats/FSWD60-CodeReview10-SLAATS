@@ -34,114 +34,122 @@
 			<h1>Content Management System</h1>
 		</div>
 		<div class="">
-		<table class="table table-responsive">
+			<table class="table table-responsive">
 				<tr>
 					<tr>
-					<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
-					<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
-					<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
-					<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
-					<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
-					<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
-					
-				</tr>
+						<td><a href="viewmedia.php"><button class="btn btn-default">View Media Data</button></a></td>
+						<td><a href="viewauthor.php"><button class="btn btn-default">View Author Data</button></a></td>
+						<td><a href="viewpublisher.php"><button class="btn btn-default">View Publisher Data</button></a></td>
+						<td><a href="viewgenres.php"><button class="btn btn-default">View Genres Data</button></a></td>
+						<td><a href="viewemployee.php"><button class="btn btn-default">View Employee Data</button></a></td>
+						<td><a href="indexcfpublib.php"><button class="btn btn-default">Hompage</button></a></td>
+
+					</tr>
 					<tr>
-					<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
-					<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
-					<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
-					<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
-					<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
-					<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
-				</tr>
-		</table>
-		</div>
-		<hr>
-		<!---CONTENT SECTION ENDS --->
+						<td><a href="createmedia.php"><button class="btn btn-default">Create Media Data</button></a></td>
+						<td><a href="createauthor.php"><button class="btn btn-default">Create Author Data</button></a></td>
+						<td><a href="createpublisher.php"><button class="btn btn-default">Create  Publisher Data</button></a></td>
+						<td><a href="creategenres.php"><button class="btn btn-default">Create  Genres Data</button></a></td>
+						<td><a href="createemployee.php"><button class="btn btn-default">Create  Employee Data</button></a></td>
+						<td><a href="logout.php"><button class="btn btn-default">Logout</button></a></td>
+					</tr>
+				</table>
+			</div>
+			<hr>
+			<!---CONTENT SECTION ENDS --->
 
-		<!---TABLE AND DATABASE DATA PULL BEGINS--->
-		<div>
-			<H3>VIEW MEDIA DATA</H3>
-		</div>
-		<hr>
-		<div class="manageTable">
-   			<table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
-     			<thead>
-       				<tr>
-				       	<th>Media_ID</th>
-				        <th>ISBN#</th>
-				        <th>Media Code</th>
-				        <th>Title</th>
-				        <th>Image</th>
-				        <th>Description</th>
-				        <th>Media Type</th>
-				        <th>Publisher Date</th>
-				        <th>Total Units</th>
-				        <th>Available Units</th>
-				        <th>Unit Location</th>
-				        <th>Author</th>
-				        <th>Publisher</th>
-				        <th>Genre</th>
-				        <th>Admin Managing</th>
-				        <th>Creation Date</th>
-				        <th>Last Updated</th>
-				        <th>Edit/Delete</th>
-       				</tr>
-     			</thead>
-      		<tbody>
-
-       <?php
-       require_once 'actions/db_connect.php';
-
-       $sql = "SELECT * FROM media";
-       $result = $connect->query($sql);
-
-       if($result->num_rows > 0) {
-         while($row = $result->fetch_assoc()) {
-           echo "<tr>
-           <td>".$row['Media_ID']."</td> 
-           <td>".$row['ISBN_No']."</td>
-           <td>".$row['MediaCode']."</td>
-           <td>".$row['Title']."</td>
-           <td><img src='".$row['TitleImage']."' width=100px></td>
-           <td>".$row['Description']."</td>
-           <td>".$row['MediaType']."</td>
-           <td>".$row['PublisherDate']."</td>
-           <td>".$row['Total_Count']."</td>
-           <td>".$row['Avail_Count']."</td>
-           <td>".$row['Location_ID']."</td>
-           <td>".$row['fk_Author_ID']."</td>
-           <td>".$row['fk_Publ_ID']."</td>
-           <td>".$row['fk_Genres_ID']."</td>
-           <td>".$row['fk_Admin_ID']."</td>
-           <td>".$row['Created_at']."</td>
-           <td>".$row['Updated_at']."</td>
-           <td> 
-           <a href='updatemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='deletemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
-           </td>
-           </tr>";
-         }
-       } else {
-         echo "<tr><td colspan='18'><center>No Data Avaliable</center></td></tr>";
-       }
-       ?>
-     		</tbody>
-   			</table>
- 		</div>
-		<!---ENDS TABLE AND DATABASE DATA PULL--->
-
-		<!---FOOTER SECTION BEGINS --->
-		<footer id="footer">
+			<!---TABLE AND DATABASE DATA PULL BEGINS--->
 			<div>
-				<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+				<H3>VIEW MEDIA DATA</H3>
 			</div>
-			<div class="copyright text-center">
-				<p>Jamie Slaats - CodeFactory 2019&#169;</p>
+			<hr>
+			<div class="manageTable">
+				<table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
+					<thead>
+						<tr>
+							<th>Media_ID</th>
+							<th>ISBN#</th>
+							<th>Media Code</th>
+							<th>Title</th>
+							<th>Image</th>
+							<th>Description</th>
+							<th>Media Type</th>
+							<th>Publisher Date</th>
+							<th>Total Units</th>
+							<th>Available Units</th>
+							<th>Unit Location</th>
+							<th>Author</th>
+							<th>Publisher</th>
+							<th>Genre</th>
+							<th>Admin</th>
+							<th>Creation Date</th>
+							<th>Last Updated</th>
+							<th>Edit/Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<?php
+						require_once 'actions/db_connect.php';
+
+						$sql = "SELECT `media`.`Media_ID`, `media`.`ISBN_No`, `media`.`MediaCode`, `media`.`Title`, `media`.`TitleImage`, `media`.`Description`, `media`.`MediaType`, `media`.`PublisherDate`, `media`.`Total_Count`, `media`.`Avail_Count`, `media`.`Location_ID`, `authors`.Name as authorName, `authors`.Surname as authorSurname, `publishers`.Name, `genres`.`GenreName`, `employee`.`Name` as empname, `employee`.`Surname` as empsurname, `media`.`Created_at`, `media`.`Updated_at`
+						FROM `media`
+						INNER JOIN `authors` ON `media`.`fk_Author_ID` = `authors`.`Author_ID`
+						INNER JOIN publishers ON `media`.`fk_Publ_ID`  = `publishers`.`Publ_ID`
+						INNER JOIN genres ON `media`.`fk_Genres_ID` = `genres`.`Genres_ID`
+						INNER JOIN `employee` ON `media`.`fk_EmpAdmin_ID` = `employee`.`EmpAdmin_ID`";
+
+						//when createing above like this `authors`.Name as authorName it is making it more simple to remember and link the name. Then used below. 
+						$result = $connect->query($sql);
+
+						if($result->num_rows > 0) {
+							while($row = $result->fetch_assoc()) {
+								echo "<tr>
+								<td>".$row['Media_ID']."</td> 
+								<td>".$row['ISBN_No']."</td>
+								<td>".$row['MediaCode']."</td>
+								<td>".$row['Title']."</td>
+								<td><img src='".$row['TitleImage']."' width=100px></td>
+								<td>".$row['Description']."</td>
+								<td>".$row['MediaType']."</td>
+								<td>".$row['PublisherDate']."</td>
+								<td>".$row['Total_Count']."</td>
+								<td>".$row['Avail_Count']."</td>
+								<td>".$row['Location_ID']."</td>
+								<td>".$row['authorName']." " .$row['authorSurname']."</td>
+								<td>".$row['Name']."</td>
+								<td>".$row['GenreName']."</td>
+								<td>".$row['empname']." ".$row['empsurname']."</td>
+								<td>".$row['Created_at']."</td>
+								<td>".$row['Updated_at']."</td>
+								<td> 
+								<a href='updatemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+								<a href='deletemedia.php?Media_ID=".$row['Media_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+								</td>
+								</tr>";
+								
+							} 
+						} else {
+							echo "<tr><td colspan='13'><center>No Data Avaliable</center></td></tr>";
+						}
+						?>
+					</tbody>
+				</table>
 			</div>
+			<!---ENDS TABLE AND DATABASE DATA PULL--->
+
+			<!---FOOTER SECTION BEGINS --->
+			<footer id="footer">
+				<div>
+					<img class="center-block" src="IMG/cfpubliclibraryblack.png" alt="CF Public Library Logo" width="300">
+				</div>
+				<div class="copyright text-center">
+					<p>Jamie Slaats - CodeFactory 2019&#169;</p>
+				</div>
+			</footer>
+			<!--- END OF FOOTER SECTION --->
 		</footer>
-		<!--- END OF FOOTER SECTION --->
-	</footer>
-</div> <!-- /container -->
+	</div> <!-- /container -->
 </body>
 
 </html>
