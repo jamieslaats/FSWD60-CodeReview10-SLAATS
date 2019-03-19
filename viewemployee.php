@@ -90,7 +90,7 @@
        if($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
            echo "<tr>
-           <td>".$row['Employee_ID']."</td> 
+           <td>".$row['EmpAdmin_ID']."</td> 
            <td>".$row['Empl_Code']."</td>
            <td>".$row['Name']."</td>
            <td>".$row['Surname']."</td>
@@ -100,8 +100,8 @@
            <td>".$row['Created_at']."</td>
            <td>".$row['Updated_at']."</td>
            <td> 
-           <a href='updateemployee.php?Employee_ID=".$row['Employee_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
-           <a href='deleteemployee.php?Employee_ID=".$row['Employee_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
+           <a href='updateemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-edit'></i></button></a>
+           <a href='deleteemployee.php?EmpAdmin_ID=".$row['EmpAdmin_ID']."'><button type='button'><i class='fas fa-trash-alt'></i></button></a>
            </td>
            </tr>";
          }

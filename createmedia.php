@@ -69,7 +69,7 @@
 						<label id="labellettering">ISBN Number</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left">
-						<input type="text" name="ISBN_No" placeholder="ISBN#">
+						<input id="inputmedialine" type="text" name="ISBN_No" placeholder="ISBN#">
 					</div>
 				</div>
 				<div class="row">
@@ -77,15 +77,15 @@
 						<label id="labellettering">Media Code</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="MediaCode" placeholder="Media Code">
+						<input id="inputmedialine" type="text" name="MediaCode" placeholder="Media Code">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<label id="labellettering">Title of Media</label>
+						<label  id="labellettering">Title of Media</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="Title" placeholder="Title of Media">
+						<input id="inputmedialine" type="text" name="Title" placeholder="Title of Media">
 					</div>
 				</div>
 				<div class="row">
@@ -93,7 +93,7 @@
 						<label id="labellettering">Title Image</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="TitleImage" placeholder="Link to Title Image">
+						<input id="inputmedialine" type="text" name="TitleImage" placeholder="Link to Title Image">
 					</div>
 				</div>
 				<div class="row">
@@ -101,7 +101,7 @@
 						<label id="labellettering">Description</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="Description" placeholder="Description of Media">
+						<input id="inputmedialine" type="text" name="Description" placeholder="Description of Media">
 					</div>
 				</div>
 				<div class="row">
@@ -109,7 +109,7 @@
 						<label id="labellettering">Media Type</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="MediaType" placeholder="Book/CD/DVD/AudioBook/Digital Book">
+						<input id="inputmedialine" type="text" name="MediaType" placeholder="Book/CD/DVD/AudioBook/Digital Book">
 					</div>
 				</div>
 				<div class="row">
@@ -117,7 +117,7 @@
 						<label id="labellettering">Publisher Date</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="PublisherDate" placeholder="YYYY-MM-DD">
+						<input id="inputmedialine" type="text" name="PublisherDate" placeholder="YYYY-MM-DD">
 					</div>
 				</div>
 				<div class="row">
@@ -125,7 +125,7 @@
 						<label id="labellettering">Total Number of Units</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="Total_Count" placeholder="0000">
+						<input id="inputmedialine" type="text" name="Total_Count" placeholder="0000">
 					</div>
 				</div>
 				<div class="row">
@@ -133,7 +133,7 @@
 						<label id="labellettering">Number of Units Available</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="Avail_Count" placeholder="0000">
+						<input id="inputmedialine" type="text" name="Avail_Count" placeholder="0000">
 					</div>
 				</div>
 				<div class="row">
@@ -141,7 +141,7 @@
 						<label id="labellettering">Media Location</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<input type="text" name="Location_ID" placeholder="0000">
+						<input id="inputmedialine" type="text" name="Location_ID" placeholder="0000">
 					</div>
 				</div>
 				<div class="row">
@@ -149,7 +149,7 @@
 						<label for="fk_Author_ID" id="labellettering">Author Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<select  name="fk_Author_ID">
+						<select id="inputmedialine" name="fk_Author_ID">
 							<?php 
 							require_once 'actions/db_connect.php';
 
@@ -166,7 +166,7 @@
 						<label for="fk_Author_ID" id="labellettering">Publisher Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<select  name="fk_Publ_ID">
+						<select id="inputmedialine" name="fk_Publ_ID">
 							<?php 
 							require_once 'actions/db_connect.php';
 
@@ -183,7 +183,7 @@
 						<label for="fk_Author_ID" id="labellettering">Genre</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<select  name="fk_Genres_ID">
+						<select id="inputmedialine" name="fk_Genres_ID">
 							<?php 
 							require_once 'actions/db_connect.php';
 
@@ -200,7 +200,7 @@
 						<label for="fk_Author_ID" id="labellettering">Admin Name</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<select  name="fk_EmpAdmin_ID">
+						<select id="inputmedialine"  name="fk_EmpAdmin_ID">
 							<?php 
 							require_once 'actions/db_connect.php';
 

@@ -68,10 +68,10 @@
 
 				require_once 'actions/db_connect.php';
 
-				if($_GET['Employee_ID']) {
-					$employeeid = $_GET['Employee_ID'];
+				if($_GET['EmpAdmin_ID']) {
+					$employeeid = $_GET['EmpAdmin_ID'];
 
-                    $sql = "SELECT * FROM employee WHERE Employee_ID = {$employeeid}";
+                    $sql = "SELECT * FROM employee WHERE EmpAdmin_ID = {$employeeid}";
                 $result = $connect->query($sql); // mysqli_query($mysqli, $sql)
 
                 $data = $result->fetch_assoc(); // mzsqli_fetch_assoc($result)
@@ -139,12 +139,12 @@
                 $emailaddress = $_POST['Email'];
                 $department = $_POST['Department'];
 
-                $employeeid = $_GET['Employee_ID'];
+                $employeeid = $_GET['EmpAdmin_ID'];
 
-                $sql = "UPDATE employee SET Empl_Code = '$emplcode', Name = '$fname', Surname = '$lname', Email = '$emailaddress', Department = '$department' WHERE Employee_ID = {$employeeid}";
+                $sql = "UPDATE employee SET Empl_Code = '$emplcode', Name = '$fname', Surname = '$lname', Email = '$emailaddress', Department = '$department' WHERE EmpAdmin_ID = {$employeeid}";
                 if($connect->query($sql) === TRUE) {
                     echo "<p>Successfully Updated</p>";
-                    echo "<a href='viewemployee.php?Employee_ID=".$employeeid."'><button  class='btn btn-default' type='button'>Back to View Employee</button></a>";
+                    echo "<a href='viewemployee.php?EmpAdmin_ID=".$employeeid."'><button  class='btn btn-default' type='button'>Back to View Employee</button></a>";
                 } else {
                     echo "Error while updating record : ". $connect->error;
                 }
