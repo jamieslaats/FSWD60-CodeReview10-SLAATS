@@ -167,7 +167,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <select  name="fk_Author_ID">
                             <option><?php echo $data['fk_Author_ID'] ?></option>
-                            <option>-----------------------------------</option>
+                             <option disabled="">-----------------------------------</option>
                             <?php 
                             require_once 'actions/db_connect.php';
 
@@ -186,7 +186,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <select  name="fk_Publ_ID">
                             <option><?php echo $data['fk_Publ_ID'] ?></option>
-                            <option>-----------------------------------</option>
+                             <option disabled="">-----------------------------------</option>
                             <?php 
                             require_once 'actions/db_connect.php';
 
@@ -205,7 +205,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <select  name="fk_Genres_ID">
                             <option><?php echo $data['fk_Genres_ID'] ?></option>
-                            <option>-----------------------------------</option>
+                            <option disabled="">-----------------------------------</option>
                             <?php 
                             require_once 'actions/db_connect.php';
 
@@ -224,7 +224,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <select  name="fk_EmpAdmin_ID">
                             <option><?php echo $data['fk_EmpAdmin_ID'] ?></option>
-                            <option>-----------------------------------</option>
+                             <option disabled="">-----------------------------------</option>
                             <?php 
                             require_once 'actions/db_connect.php';
 

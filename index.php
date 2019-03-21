@@ -37,63 +37,23 @@
   </div>
   <hr>
   <div class="manageTable">
-    <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
-      <thead>
-        <tr>
-          <th>ISBN#</th>
-          <th>Media Code</th>
-          <th>Title</th>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Media Type</th>
-          <th>Publisher Date</th>
-          <th>Total Units</th>
-          <th>Available Units</th>
-          <th>Unit Location</th>
-          <th>Author</th>
-          <th>Publisher</th>
-          <th>Genre</th>
-        </tr>
-      </thead>
-      <tbody>
+   <!-- EXAMPLE AND MANAGEMENT OF JQUERY AJAX DISPLAY OF DATABASE in CONJUNCTiON WITH INDEXSEARCH.php--->
+<script>
+function showDatabase() {
+        var xhttp = new XMLHttpRequest(); //create variable xhttp
+        xhttp.onreadystatechange = function() { //xhttp then on ready state change runs function.
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("databaseoutput").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET","indexsearch.php",true);
+        xhttp.send();
+    }
+</script>
+  <button class="center-block btn btn-default" type="submit" name="Media_ID" onclick="showDatabase()">Display Library Database</button> <!--important is that there is the ONCLICK as it is a button action to drive the full database output. -->
+  <br>
 
-       <?php
-       require_once 'actions/db_connect.php';
-
-       $sql = "SELECT `media`.`ISBN_No`, `media`.`MediaCode`, `media`.`Title`, `media`.`TitleImage`, `media`.`Description`, `media`.`MediaType`, `media`.`PublisherDate`, `media`.`Total_Count`, `media`.`Avail_Count`, `media`.`Location_ID`, `authors`.Name as authorName, `authors`.Surname as authorSurname, `publishers`.Name, `genres`.`GenreName`
-       FROM `media`
-       INNER JOIN `authors` ON `media`.`fk_Author_ID` = `authors`.`Author_ID`
-       INNER JOIN publishers ON `media`.`fk_Publ_ID`  = `publishers`.`Publ_ID`
-       INNER JOIN genres ON `media`.`fk_Genres_ID` = `genres`.`Genres_ID`
-       INNER JOIN `employee` ON `media`.`fk_EmpAdmin_ID` = `employee`.`EmpAdmin_ID`";
-
-       //when createing above like this `authors`.Name as authorName it is making it more simple to remember and link the name. Then used below. 
-       $result = $connect->query($sql);
-
-       if($result->num_rows > 0) {
-         while($row = $result->fetch_assoc()) {
-           echo "<tr>
-           <td>".$row['ISBN_No']."</td>
-           <td>".$row['MediaCode']."</td>
-           <td>".$row['Title']."</td>
-           <td><img src='".$row['TitleImage']."' width=100px></td>
-           <td>".$row['Description']."</td>
-           <td>".$row['MediaType']."</td>
-           <td>".$row['PublisherDate']."</td>
-           <td>".$row['Total_Count']."</td>
-           <td>".$row['Avail_Count']."</td>
-           <td>".$row['Location_ID']."</td>
-           <td>".$row['authorName']." " .$row['authorSurname']."</td>
-           <td>".$row['Name']."</td>
-           <td>".$row['GenreName']."</td>
-           </tr>";
-         }
-       } else {
-         echo "<tr><td colspan='13'><center>No Data Avaliable</center></td></tr>";
-       }
-       ?>
-     </tbody>
-   </table>
+  <div id="databaseoutput"></div>
  </div>
 
 
